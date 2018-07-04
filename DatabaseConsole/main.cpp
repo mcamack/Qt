@@ -22,5 +22,15 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    QString cmd = "SELECT * FROM users";
+    QSqlQuery query(db);
+    if (query.exec(cmd)){
+        while(query.next()){
+            QString user = query.value("username").toString();
+            qDebug() << user;
+        }
+
+    }
+
     return a.exec();
 }
